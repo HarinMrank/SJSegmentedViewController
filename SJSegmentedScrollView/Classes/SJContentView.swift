@@ -36,7 +36,7 @@ class SJContentView: UIScrollView {
         super.init(frame: frame)
         
         delegate = self
-		isPagingEnabled = true
+		//isPagingEnabled = true
         
         contentView = UIView()
         contentView.translatesAutoresizingMaskIntoConstraints = false

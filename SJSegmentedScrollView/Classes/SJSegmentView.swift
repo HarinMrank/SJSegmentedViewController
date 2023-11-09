@@ -57,11 +57,11 @@ class SJSegmentView: UIScrollView {
     var shadow: SJShadow? {
         didSet {
             if let shadow = shadow {
-                layer.shadowOffset = shadow.offset
-                layer.shadowColor = shadow.color.cgColor
-                layer.shadowRadius = shadow.radius
-                layer.shadowOpacity = shadow.opacity
-                layer.masksToBounds = false;
+                //layer.shadowOffset = shadow.offset
+                //layer.shadowColor = shadow.color.cgColor
+                //layer.shadowRadius = shadow.radius
+                //layer.shadowOpacity = shadow.opacity
+                //layer.masksToBounds = false;
             }
         }
     }
@@ -91,7 +91,7 @@ class SJSegmentView: UIScrollView {
     
     required override init(frame: CGRect) {
         super.init(frame: frame)
-
+        decelerationRate = UIScrollView.DecelerationRate.fast
 		showsHorizontalScrollIndicator = false
 		showsVerticalScrollIndicator = false
 		bounces = false

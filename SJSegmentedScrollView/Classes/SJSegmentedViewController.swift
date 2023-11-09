@@ -332,7 +332,7 @@ import UIKit
     override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        let topSpacing = SJUtil.getTopSpacing(self)
+        let topSpacing = view.safeAreaInsets.top
         segmentedScrollView.topSpacing = topSpacing
         segmentedScrollView.bottomSpacing = SJUtil.getBottomSpacing(self)
         segmentScrollViewTopConstraint?.constant = topSpacing
