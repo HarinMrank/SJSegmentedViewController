@@ -383,9 +383,9 @@ class SJSegmentedScrollView: UIScrollView {
 	                           context: UnsafeMutableRawPointer?) {
 		if !observing { return }
 
-		let scrollView = object as? UIScrollView
-		if scrollView == nil { return }
-		if scrollView == self { return }
+        guard let scrollView = object as? UIScrollView else { return }
+         if scrollView == self { return }
+         guard scrollView.isDragging else { return }
 
 		let changeValues = change! as [NSKeyValueChangeKey: AnyObject]
 
@@ -396,12 +396,12 @@ class SJSegmentedScrollView: UIScrollView {
 
 			if diff > 0.0 {
 
-				handleScrollUp(scrollView!,
+                handleScrollUp(scrollView,
 				                    change: diff,
 				                    oldPosition: old)
 			} else {
 
-				handleScrollDown(scrollView!,
+                handleScrollDown(scrollView,
 				                      change: diff,
 				                      oldPosition: old)
 			}
