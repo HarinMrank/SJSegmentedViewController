@@ -82,10 +82,10 @@ class SJSegmentView: UIScrollView {
     
     var contentView: SJContentView? {
         didSet {
-            contentView!.addObserver(self,
-                                     forKeyPath: "contentOffset",
-                                     options: [NSKeyValueObservingOptions.new, NSKeyValueObservingOptions.old],
-                                     context: nil)
+//            contentView!.addObserver(self,
+//                                     forKeyPath: "contentOffset",
+//                                     options: [NSKeyValueObservingOptions.new, NSKeyValueObservingOptions.old],
+//                                     context: nil)
         }
     }
     
@@ -315,32 +315,32 @@ class SJSegmentView: UIScrollView {
 		return maxWidth
 	}
     
-	override func observeValue(forKeyPath keyPath: String?,
-	                           of object: Any?,
-	                           change: [NSKeyValueChangeKey : Any]?,
-	                           context: UnsafeMutableRawPointer?) {
-        
-        if let change = change as [NSKeyValueChangeKey : AnyObject]? {
-            if let old = change[NSKeyValueChangeKey.oldKey], let new = change[NSKeyValueChangeKey.newKey] {
-                if !(old.isEqual(new)) {
-                    //update selected segment view x position
-                    let scrollView = object as? UIScrollView
-                    var changeOffset = (scrollView?.contentSize.width)! / contentSize.width
-                    let value = (scrollView?.contentOffset.x)! / changeOffset
-                    
-                    if !value.isNaN {
-                        selectedSegmentView?.frame.origin.x = (scrollView?.contentOffset.x)! / changeOffset
-                    }
-                    
-                    //update segment offset x position
-                    let segmentScrollWidth = contentSize.width - bounds.width
-                    let contentScrollWidth = scrollView!.contentSize.width - scrollView!.bounds.width
-                    changeOffset = segmentScrollWidth / contentScrollWidth
-                    contentOffset.x = (scrollView?.contentOffset.x)! * changeOffset
-                }
-            }
-        }
-    }
+//	override func observeValue(forKeyPath keyPath: String?,
+//	                           of object: Any?,
+//	                           change: [NSKeyValueChangeKey : Any]?,
+//	                           context: UnsafeMutableRawPointer?) {
+//        
+//        if let change = change as [NSKeyValueChangeKey : AnyObject]? {
+//            if let old = change[NSKeyValueChangeKey.oldKey], let new = change[NSKeyValueChangeKey.newKey] {
+//                if !(old.isEqual(new)) {
+//                    //update selected segment view x position
+//                    let scrollView = object as? UIScrollView
+//                    var changeOffset = (scrollView?.contentSize.width)! / contentSize.width
+//                    let value = (scrollView?.contentOffset.x)! / changeOffset
+//                    
+//                    if !value.isNaN {
+//                        selectedSegmentView?.frame.origin.x = (scrollView?.contentOffset.x)! / changeOffset
+//                    }
+//                    
+//                    //update segment offset x position
+//                    let segmentScrollWidth = contentSize.width - bounds.width
+//                    let contentScrollWidth = scrollView!.contentSize.width - scrollView!.bounds.width
+//                    changeOffset = segmentScrollWidth / contentScrollWidth
+//                    contentOffset.x = (scrollView?.contentOffset.x)! * changeOffset
+//                }
+//            }
+//        }
+//    }
     
     func didChangeParentViewFrame(_ frame: CGRect) {
         
