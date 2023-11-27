@@ -281,6 +281,10 @@ import UIKit
         }
     }
     
+    open func scrollToTop(){
+        segmentedScrollView.setContentOffset(.zero, animated: false)
+    }
+    
     open weak var delegate:SJSegmentedViewControllerDelegate?
     var segmentedScrollView = SJSegmentedScrollView(frame: CGRect.zero)
     var segmentScrollViewTopConstraint: NSLayoutConstraint?
